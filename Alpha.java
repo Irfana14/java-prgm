@@ -4,7 +4,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 import java.util.Scanner;
-import java.util.Scanner;
+
 class Alpha
 {
 	public static void main(String[ ] arg)
@@ -16,7 +16,7 @@ class Alpha
 	//char ch=sc.nextChar();
 	
 	if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
-	System.out.println("Alphabet                ");
+	System.out.println("Alphabet");
 
 		else
 		System.out.println("invalid");		
