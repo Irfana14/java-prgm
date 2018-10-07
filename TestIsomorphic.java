@@ -10,7 +10,7 @@
             int length = str1.length();
             /* length of both strings must be same */
             if (length != str2.length()) {
-                  return false;
+                  return no;
             }
 
             // To mark visited characters in str2
@@ -28,9 +28,9 @@
                   if(ch=='#') {
                         visited[strArr1[i]-'a'] = strArr2[i];
                   } else if (ch != strArr2[i]) {
-                        return false;                      
+                        return no;                      
                   }
             }
-            return true;
+            return yes;
       }
 }
