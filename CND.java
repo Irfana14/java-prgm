@@ -22,7 +22,7 @@ class CND {
 		Scanner n = new Scanner(System.in);
 		int num = n.nextInt();
 	
-		System.out.print("Number of digits : " + countDigit(num)); 
+		System.out.print("" + countDigit(num)); 
 	} 
 } 
 // This code is contributed by Arnav Kr. Mandal. 
