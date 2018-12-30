@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Units</title>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<style type="text/css">
+     
+	 body {background-color:#eae3c6;margin-top:150px;}
+	 form {width:330px;margin:auto}
+	 fieldset {width:250px;background-color:#f0fff0;border:1.5px solid #87ceeb}
+	 legend {font-family:times;font-size:14pt;color:#00008b;background-color:#87ceeb;padding-left:3px;padding-right:3px;margin-bottom:5px}
+	 label {font-family:times;font-size:12pt;color:#00008B;padding:5px}
+	 select {font-family:tahoma;font-size:10pt;width:125px;margin-left:-9px}
+#content
+{
+    position: absolute;
+    top: 110px;
+    left: 200px;
+    width: 775px;
+    height: 605px;
+}
+h2{
+color:rgb(105, 98, 100);
+position: absolute;
+ left: 520px;
+top: 100px;
+    }
+h3{
+color:black;}
+body{
+background-image:url("UC_Feature_IMG.jpg");
+}
+<div class="ccms_form_element cfdiv_custom" id="style_container_div">
+</style>
+<body>
+<br>
+<h2>UNIT CONVERTER</h2>
+<form name="process">
+<input style="float:left;width:35%;" type="text" name="in1" onchange="go()">
+    =   
+<input style="float:center;width:35%;" type="text" name="in2">
+		<fieldset>
+			<select id='id1' onchange="fillSelect(this.value,this.form['id2'])">
+			    <option value="">Select</option>
+				<option value="CA">Kilogram</option>
+				<option value="OH">Pounds</option>
+				<option value="PA">Meter</option>
+                <option value="YA">Yards</option>
+                <option value="CK">Celsius</option>
+                <option value="FA">Fahrenheit</option>
+			</select>
+            <select id='id2' onchange="go()">
+				<option value="">Select</option>
+			</select>
+			
+		
+	   </fieldset>
+</form>
+<script>
+function go(){
+           var str = document.getElementById("id2");
+	       var  val= str.options[str.selectedIndex].value;
+	       var s="";
+	       switch(val){
+	    	   case "Pounds":
+	    		   s=(parseFloat(process.in1.value))*2.2046;
+		    	   process.in2.value=s+" lb";
+		    	   break;
+	    	   case "Grams":
+	    		   s=(parseFloat(process.in1.value))*1000;
+		    	   process.in2.value=s;
+		    	   break;
+	    	   case "Kilogram":
+	    		   s=(parseFloat(process.in1.value))/2.2046;
+		    	   process.in2.value=s;
+		    	   break;
+	    	   case "Yards":
+	    		   s=(parseFloat(process.in1.value))*1.0936;
+		    	   process.in2.value=s;
+		    	   break;
+	    	   case "Meter":
+	    		   s=(parseFloat(process.in1.value))/1.0936;
+	    		   process.in2.value=s;
+	    		   break;
+	    	   case "Kilometer":
+	    		   s=(parseFloat(process.in1.value))/1000;
+		    	   process.in2.value=s;
+		    	   break;
+	    	   case "Fahrenheit":
+	    		   s=(parseFloat(process.in1.value))*1.8+32;
+	    		   process.in2.value=s;
+	    		   break;
+	    	   case "Celsius":
+	    		   s=((parseFloat(process.in1.value))-32)/1.8;
+	    		   process.in2.value=s;
+	    		   break;
+	    		   }
+	       
+	    }
+    var units = []; 
+    units["CA"] = ["Pounds","Grams"];
+    units["OH"] = ["Kilogram"];
+    units["PA"] = ["Yards","Kilometer"];
+    units["YA"] = ["Meter"];
+    units["CK"] = ["Fahrenheit"];
+    units["FA"] =["Celsius"];
+function fillSelect(nValue,nList){
+	nList.options.length = 1;
+	var curr = units[nValue];
+	for (each in curr)
+		{
+		 var nOption = document.createElement('option'); 
+		 nOption.appendChild(document.createTextNode(curr[each])); 
+		 nOption.setAttribute("value",curr[each]); 			 
+		 nList.appendChild(nOption); 
+		}
+}
+</script>
+</body>
+</html>
